@@ -23,3 +23,8 @@
 
     - name: list
       command: "ls {{ dir_name }}"
+      register: result
+
+    - name: print stdout
+      debug:
+        var: result.stdout
