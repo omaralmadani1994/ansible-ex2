@@ -12,26 +12,4 @@
     - myname: omar
 
   tasks:
-    - name: install apache2
-      apt:
-        name: apache2
-        state: present
-
-    - name: create dir
-      file:
-        path: "{{ dir_name }}"
-        state: directory
-
-    - name: list
-      command: "ls {{ dir_name }}"
-      register: result
-
-    - name: print stdout
-      debug:
-        var: result.stdout
-
-
-    - name: copy file
-      template:
-        src: config.j2
-        dest: config
+  
