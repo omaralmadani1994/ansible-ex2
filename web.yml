@@ -2,10 +2,27 @@
 - hosts: web
   remote_user: ubuntu
   become: yes
+  vars:
+   - dir_name: test
+
+
+  vars-prompt
+    - name: pasword
+      prompt: pls enter PW? 
+      private: no
+
   tasks:
     - name: install apache2
       apt:
         name: apache2
         state: present
 
+
+    - name: create dir
+      file:
+        path: "{{ dir_name }}"
+        state: directory
+
+    - name: list 
+      command: "ls {{ dir_name }}"
 
