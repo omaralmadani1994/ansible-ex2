@@ -9,6 +9,7 @@
 
   vars:
     - dir_name: test
+    - myname: omar
 
   tasks:
     - name: install apache2
@@ -28,3 +29,9 @@
     - name: print stdout
       debug:
         var: result.stdout
+
+
+    - name: copy file
+      template:
+        src: config.j2
+        dest: config
